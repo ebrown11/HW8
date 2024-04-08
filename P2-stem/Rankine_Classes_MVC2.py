@@ -85,12 +85,12 @@ class rankineView():
 
     def setNewPHigh(self, Model=None):
         """
-                 This function checks the self.rb_SI.isChecked() to see which units are used.
-                 Then, it sets the text of lbl_SatPropHigh using SatPropsIsobar(float(self.le_PHigh.text())*PCF, SI=SI).txtOut
-                 here, PCF is the pressure conversion factor
-                 finally, we need to call the function self.selectQualityOrTHigh()
-                 :return:
-                 """
+        This function checks the self.rb_SI.isChecked() to see which units are used.
+        Then, it sets the text of lbl_SatPropHigh using SatPropsIsobar(float(self.le_PHigh.text())*PCF, SI=SI).txtOut
+        here, PCF is the pressure conversion factor
+        finally, we need to call the function self.selectQualityOrTHigh()
+        :return:
+        """
         SI = self.rb_SI.isChecked()
         PCF = 1 if SI else UC.psi_to_bar
         satProp = Model.steam.getsatProps_p(float(self.le_PHigh.text()) * PCF)
